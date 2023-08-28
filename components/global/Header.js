@@ -3,11 +3,12 @@ import React from "react";
 import Link from "next/link";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import SignOut from "../ui/SignOut";
 
 const Header = async () => {
   const session = await getServerSession(authOptions);
 
-  // console.log({ session });
+  console.log({ session });
   return (
     <>
       <header style={{display: 'flex', gap: 30}}>
@@ -21,6 +22,7 @@ const Header = async () => {
             <Link href="/profile/client"> Profile (client) </Link>
             <Link href="/profile/server"> Profile (server) </Link>
             <Link href="/dashboard"> Dashboard (Admins) </Link>
+            <SignOut />
           </>
         ) : (
           <>
