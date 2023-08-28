@@ -1,7 +1,10 @@
 {
+  "strict": true,
   "compilerOptions": {
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@components/*": ["./components/*"],
+      "@context/*": ["./context/*"],
     }
   }
 }
