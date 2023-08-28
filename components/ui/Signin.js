@@ -1,7 +1,8 @@
 "use client";
 import React from 'react'
 import { signIn } from 'next-auth/react'
-const Signin = () => {
+
+const Signin = ({ callbackUrl }) => {
   return (
     <>
     <div>
@@ -15,7 +16,7 @@ const Signin = () => {
 
         {/* Google Login */}
         <div style={{margin: '30px 0'}}>
-            <button onClick={() => signIn('google', { callbackUrl: '/' })}>
+            <button onClick={() => signIn('google', { callbackUrl })}>
             {/* window.history.back() for last route (not sure) */}
                 Continue with Google
             </button>
