@@ -45,9 +45,16 @@ Header Component and Pages - Protected (client, server) - Profile (client, serve
 7.
 SignIn with Oauth ( Google ) without Database - Import GoogleProvider 
 8.
-SignOut and Middleware keep the site protected - SignOut component - Middleware
+SignOut,
+and,
+Middleware keep the site protected - SignOut component - Middleware
+
+middleware.js
 export {default} from 'next-auth/middleware'
 export const config = { matcher: ["/profile/:path*", "/protected/:path*", "/dashboard/:path*"] }
+9.
+Profile Page Data Render - Profile Component - ProfileCard Component - nextConfig = { images: { domains: ["lh3.googleusercontent.com", "images.pexels.com"] } }
+
 
 ## Deploy on Vercel
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
