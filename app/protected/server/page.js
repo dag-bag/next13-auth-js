@@ -1,16 +1,23 @@
 "use server";
-import React from 'react'
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
-const ProtectedServerPage = () => {
+const ProtectedServerPage = async () => {
+  const session = await getServerSession(authOptions);
+  console.log(session);
   return (
     <>
-    <div>
-      <h1>This is a 
-        <i style={{color: 'red'}}> Server-Side </i> protected page.
-      </h1>
-    </div>
-    </>
-  )
-}
+      <div>
+        <h1>
+          This is a<i style={{ color: "red" }}> Server-Side </i> protected page.
+        </h1>
 
-export default ProtectedServerPage
+        <p>
+          Logged in as :<i style={{ color: "red" }}>{session?.user?.name}</i>
+        </p>
+      </div>
+    </>
+  );
+};
+
+export default ProtectedServerPage;
