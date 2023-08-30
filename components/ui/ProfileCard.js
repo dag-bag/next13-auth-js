@@ -13,6 +13,7 @@ const ProfileCard = ({ user }) => {
         <h2>Email: {user?.email}</h2>
         <h2>Provider: {user?.provider}</h2>
         <h2>Role: {user?.role}</h2>
+        <h2>createdAt: {user?.createdAt?.toString()}</h2>
         <h2>Last updatedAt: {user?.updatedAt?.toString()}</h2>
       </div>
     </>
