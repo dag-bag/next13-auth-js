@@ -2,13 +2,13 @@
 import React from "react";
 import Link from "next/link";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import SignOut from "../ui/SignOut";
+import { authOptions } from "@/app/api/auth/[...nextauth]/options";
+import SignOut from "@components/ui/SignOut";
 
 const Header = async () => {
   const session = await getServerSession(authOptions);
 
-  console.log({ session });
+  // console.log({ session });
   return (
     <>
       <header style={{display: 'flex', gap: 30}}>
