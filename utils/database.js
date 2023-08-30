@@ -11,11 +11,11 @@ const connectDb = async () => {
     await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useFindAndModify: false,
+      // useFindAndModify: false,
     });
-    console.log(`MongoDB connected: ${db.connection.host}`);
+    console.log(`MongoDB connected: ${mongoose.connection.host}`);
   } catch (error) {
-    console.log(`Error Connecting to MongoDb: ${error.message}`);
+    console.log(`Error Connecting to MongoDb: ${error}`);
     process.exit(1);
   }
 };
