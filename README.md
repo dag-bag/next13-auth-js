@@ -59,6 +59,13 @@ Setup Mongodb (mongoose)
 models - userModels.js
 connect mongodb 
 11.
+callbacks: {}
+async signIn => signInWithOAuth
+async jwt => getUserByEmail
+async session => session.user = token.user
+async redirect => redirect to profile page (maybe)
+12.
+Profile Page
 
 ## Deploy on Vercel
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
