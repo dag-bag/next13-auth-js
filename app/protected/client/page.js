@@ -3,7 +3,7 @@ import { useSession } from "next-auth/react";
 
 const ProtectedClientPage = () => {
   const { data: session, status } = useSession();
-  console.log(session);
+  // console.log(session);
   return (
     <>
       <div>

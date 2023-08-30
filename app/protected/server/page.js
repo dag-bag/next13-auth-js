@@ -4,7 +4,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 const ProtectedServerPage = async () => {
   const session = await getServerSession(authOptions);
-  console.log(session);
+  // console.log(session);
   return (
     <>
       <div>
