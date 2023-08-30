@@ -11,7 +11,7 @@ const userSchema = new Schema({
         unique:true,
     },
     password: String,
-    Image: String,
+    image: String,
     role: {
         type: String,
         default: 'user',

@@ -49,14 +49,16 @@ async function signInWithOAuth({ account, profile }) {
     
     if(user) return true; // user exists in database
 
+    console.log("before picture URL : ", profile.picture);
     // create new user in database
     const newUser = await new User({
         name: profile.name,
         email: profile.email,
-        image: profile.picture,
+        image: "https://lh3.googleusercontent.com/a/AAcHTtfvHjOVHsH9fIFbG4jx2LDxEkcF-DfisgSJ9-9aqKfXHcs=s96-c",
         provider: account.provider,
     }).save(); // save new user to database
 
+    console.log("after picture URL : ", profile.picture);
     
     if(newUser) {
         console.log("New user created: ", newUser);
