@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/app/api/auth/[...nextauth]/options";
 
-const Header = async () => {
+const Footer = async () => {
   const session = await getServerSession(authOptions);
 
   // console.log({ session });
@@ -15,7 +15,7 @@ const Header = async () => {
   );
 };
 
-export default Header;
+export default Footer;
 
 //   <header style={{display: 'flex', gap: 30}}>
 //     <Link href="/"> Home </Link>
