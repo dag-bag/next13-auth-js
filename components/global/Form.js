@@ -9,7 +9,7 @@ const Form = ({action, ...props}) => {
     }
   return (
     <>
-        <form {...props} ref={ref} action={action} />
+        <form {...props} ref={formRef} action={handleAction} />
     </>
   )
 }
