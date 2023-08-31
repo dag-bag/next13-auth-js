@@ -1,6 +1,8 @@
 import React from "react";
 import Form from "../global/Form";
 import { updateUser } from "@/app/api/handleForm";
+import Button from "../global/Button";
+
 const ProfileUpdate = () => {
 
   async function handleUpdateProfile(formData) {
@@ -29,7 +31,7 @@ const ProfileUpdate = () => {
           <br></br>
           <input type="text" name="image" placeholder="Image" required />
           <br></br> <br></br>
-          <button>Update</button>
+          <Button value="Update Profile" />
           <br></br>
         </Form>
       </div>
