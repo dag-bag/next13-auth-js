@@ -79,6 +79,10 @@ etc
 
 14.
 Button Components
+Update and Re-render Profile Page Client Side
+optimz etc
+
+15.
 
 
 

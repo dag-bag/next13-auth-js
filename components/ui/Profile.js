@@ -2,12 +2,12 @@
 import ProfileCard from './ProfileCard'
 import ProfileUpdate from './ProfileUpdate'
 
-const Profile = ({ user }) => {
+const Profile = ({ user, update }) => {
   return (
     <>
     <ProfileCard user={user} />
 
-    <ProfileUpdate user={user} />
+    <ProfileUpdate user={user} update={update} />
     </>
   )
 }

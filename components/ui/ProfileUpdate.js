@@ -1,13 +1,19 @@
+"use client"
 import React from "react";
 import Form from "../global/Form";
 import { updateUser } from "@/app/api/handleForm";
 import Button from "../global/Button";
 
-const ProfileUpdate = () => {
+const ProfileUpdate = ({ update }) => {
 
   async function handleUpdateProfile(formData) {
     const name = formData.get("name");
     const image = formData.get("image");
+
+    // update data by rerender page but only for client-side page
+    if(update) {
+      update({ name, image });
+    }
 
     // update user function
     const response = await updateUser({ name, image });

@@ -19,9 +19,16 @@ export const authOptions = {
             return true;
         },
         async jwt({ token, trigger, session }) {
-            const user = await getUserByEmail({ email: token.email });
-            token.user = user;
-            // console.log({user});
+            console.log({ trigger, session });
+            if(trigger === "update") {
+                token.user = session.user;
+                token.image = session.image;
+            }
+            else {
+                const user = await getUserByEmail({ email: token.email });
+                token.user = user;
+            }
+
             return token;
         },
         async session({ session, token }) {
