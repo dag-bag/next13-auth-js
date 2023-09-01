@@ -15,6 +15,7 @@ const Header = async () => {
         <Link href="/"> Home </Link>
         <Link href="/protected/client"> Proctected (client) </Link>
         <Link href="/protected/server"> Proctected (server) </Link>
+        <Link href="/protected/admin"> Proctected (admin) </Link>
 
         {/* Session */}
         {session ? (
@@ -27,6 +28,7 @@ const Header = async () => {
         ) : (
           <>
             <Link href="/signin"> Signin </Link>
+            <Link href="/signup"> Signup </Link>
 
           </>
         )}
