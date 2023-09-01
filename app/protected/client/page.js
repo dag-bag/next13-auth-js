@@ -1,9 +1,8 @@
 "use client";
-import { useSession } from "next-auth/react";
+
+import ProtectedComponent from "@/components/ui/ProtectedComponent";
 
 const ProtectedClientPage = () => {
-  const { data: session, status } = useSession();
-  // console.log(session);
   return (
     <>
       <div>
@@ -11,17 +10,7 @@ const ProtectedClientPage = () => {
           This is a<i style={{ color: "red" }}> Client-Side </i> protected page.
         </h1>
 
-        <p>
-          Logged in as :
-          <i style={{ color: "red" }}>
-            {" "}
-            {status === "loading" ? (
-              <>Loading...</>
-            ) : (
-              <>{session?.user?.name}</>
-            )}{" "}
-          </i>
-        </p>
+        <ProtectedComponent />
       </div>
     </>
   );
