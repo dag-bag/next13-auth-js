@@ -18,7 +18,7 @@ export async function updateUser({ name, image }) {
   // validate image domain
   const imageUrl = new URL(image);
   if (!allowedDomains.includes(imageUrl.hostname)) {
-    return { msg: "Not Whitelisted hostname for image url"};
+    throw new Error("Invalid Image URL, Must be Whitelisted Hostname");
   }
 
   try {
@@ -49,8 +49,8 @@ export async function signUpWithCredentials( data ) {
     const user = await User.findOne({email: data.email});
 
     if(user) {
-      return { msg: "Error, Email Already Exists" };
-    } // if user exists, return error
+      throw new Error("User already exists"); // if user exists, return error
+    }
 
     if(data.password) {
       data.password = await bcrypt.hash(data.password, 12);
