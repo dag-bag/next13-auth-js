@@ -83,6 +83,12 @@ Update and Re-render Profile Page Client Side
 optimz etc
 
 15.
+Signup with Credentials
+signinWIthCredentials Actions
+
+16.
+Error Fixes
+
 
 
 
