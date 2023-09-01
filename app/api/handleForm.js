@@ -4,8 +4,11 @@ import bcrypt from "bcrypt";
 import { authOptions } from "./auth/[...nextauth]/options";
 import User from "@models/userModel";
 import { redirect } from "next/navigation";
+import { generateToken } from "@/utils/token";
+import sendEmail from "@/utils/sendEmail";
 
 const allowedDomains = process.env.ALLOW_DOMAIN.split(',');
+const BASE_URL = process.env.NEXTAUTH_URL;
 
 // signin wih OAuth Google
 export async function updateUser({ name, image }) {
@@ -56,7 +59,13 @@ export async function signUpWithCredentials( data ) {
       data.password = await bcrypt.hash(data.password, 12);
     } // if password exists, hash password
 
-    console.log({data});
+    const token = generateToken({ user: data });
+
+    await sendEmail({
+      to: data.email,
+      url: `${BASE_URL}/verify?token=${token}`,
+      text: "Verify your email address",
+    });
     
 
 

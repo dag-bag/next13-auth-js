@@ -89,6 +89,22 @@ signinWIthCredentials Actions
 16.
 Error Fixes
 
+17.
+Token + Send Email
+.env  
+TOKEN_SECRET=YOUR_SECRET (openssl rand -base64 32)
+EMAIL_USER=
+EMAIL_PASSWORD=
+EMAIL_SERVICE=
+
+18
+Verify Email to Complete the Registration
+Verify Email Page
+verifyEmailWithCredentials Actions
+
+19.
+Signin with Credentials (Email, Password)
+
 
 
 
