@@ -1,5 +1,4 @@
 "use client"
-import React from "react";
 import Form from "../global/Form";
 import { updateUser } from "@/app/api/handleForm";
 import Button from "../global/Button";

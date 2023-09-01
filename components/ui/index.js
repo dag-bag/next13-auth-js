@@ -7,7 +7,7 @@ const Profile = ({ user, update }) => {
     <>
     <ProfileCard user={user} />
 
-    <ProfileUpdate user={user} update={update} />
+    <ProfileUpdate update={update} />
     </>
   )
 }

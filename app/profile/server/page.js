@@ -1,6 +1,6 @@
 "use server";
 import { authOptions } from '@/app/api/auth/[...nextauth]/options';
-import Profile from '@components/ui/Profile'
+import Profile from '@/components/ui'
 import { getServerSession } from 'next-auth/next'
 
 const ProfilePage = async () => {

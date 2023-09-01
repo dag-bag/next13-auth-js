@@ -1,5 +1,5 @@
 "use client";
-import Profile from '@components/ui/Profile'
+import Profile from '@/components/ui'
 import { useSession } from 'next-auth/react'
 
 const ProfilePage = () => {
