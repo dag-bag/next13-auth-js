@@ -1,6 +1,7 @@
 "use client"
 import Button from "../global/Button"
 import Form from "../global/Form"
+import Link from "next/link"
 import { signUpWithCredentials } from "../../app/api/handleForm"
 
 const Signup = () => {
@@ -15,10 +16,7 @@ const Signup = () => {
     if(res?.msg) {
       alert(res?.msg); // show success alert message
     }
-
-
   }
-
   return (
     <>
     <h2>Signup</h2>
@@ -33,6 +31,10 @@ const Signup = () => {
       <br></br><br></br>
       <Button value={"Register"} />
     </Form>
+
+    <div>
+      <p>Already have an account? <Link href="/signin">Signin</Link></p>
+    </div>
     </>
   )
 }
