@@ -15,6 +15,7 @@ const userSchema = new Schema({
     },
     image: {
         type: String,
+        default: 'https://imgur.com/L7nNyj4',
     },
     role: {
         type: String,

@@ -59,6 +59,9 @@ export async function signUpWithCredentials( data ) {
       data.password = await bcrypt.hash(data.password, 12);
     } // if password exists, hash password
 
+    // Set default image for the user
+    data.image = 'https://imgur.com/L7nNyj4';
+
     const token = generateToken({ user: data });
 
     await sendEmail({
