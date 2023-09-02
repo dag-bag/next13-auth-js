@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 import { authOptions } from "./auth/[...nextauth]/options";
 import User from "@models/userModel";
 import { redirect } from "next/navigation";
-import { generateToken } from "@/utils/token";
+import { generateToken, verifyToken } from "@/utils/token";
 import sendEmail from "@/utils/sendEmail";
 
 const allowedDomains = process.env.ALLOW_DOMAIN.split(',');
@@ -70,6 +70,28 @@ export async function signUpWithCredentials( data ) {
 
 
     return { msg: "Signup Success! Check your Email to complete the Registration" };
+  } catch (error) {
+    redirect(`/errors?error=${error.message}`);
+  }
+}
+
+// verift wih credentials
+export async function verifyWithCredentials( token ) {
+  
+  try {
+    const { user } = verifyToken(token);
+
+    const userExist = await User.findOne({email: user.email});
+    if(userExist) {
+      return { msg: "User already exists"}; // if user exists, return error
+    }
+
+    const newUser = await User(user);
+
+    await newUser.save();
+    console.log({newUser});
+
+    return { msg: "Verify Success! You can now login" };
   } catch (error) {
     redirect(`/errors?error=${error.message}`);
   }
