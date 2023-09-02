@@ -1,4 +1,5 @@
 import User from "@/models/userModel"
+import bcrypt from "bcrypt";
 
 // fucntion: signInWithOAuth
 // description: creates new user in database if user does not exist
@@ -36,4 +37,24 @@ export async function getUserByEmail({ email }) {
 
     // user exists in database
     return { ...user._doc, _id: user._id.toString() };
+}
+
+// function: signUpWithCredentials
+// description: credentails signin
+export async function signUpWithCredentials({ email, password }) {
+    const user = await User.findOne({ email });
+
+    if(!user) {
+        throw new Error("User already exists");
+    } // user does not exist in database
+
+    // compare password with hashed password
+    const compair = await bcrypt.compare(password, user.password);
+
+    if(!compair) {
+        throw new Error("Invalid credentials");
+    } // password does not match hashed password
+
+    return {...user._doc, _id: user._id.toString()}; // return user
+
 }

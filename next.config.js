@@ -5,7 +5,7 @@ const nextConfig = {
         serverActions: true,
     },
     images: {
-        domains: ['lh3.googleusercontent.com', 'images.pexels.com', 'i.imgur.com' ],
+        domains: ['lh3.googleusercontent.com', 'images.pexels.com', 'i.imgur.com', 'imgur.com' ],
     },
 }
 

@@ -13,7 +13,7 @@ const Signin = ({ callbackUrl }) => {
     await signIn("credentials", {
       email,
       password,
-      callbackUrl,
+      callbackUrl: '/',
     });
   }
   return (
