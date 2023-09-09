@@ -1,14 +1,11 @@
 {
-  "plugins": [
-    {
-      "name": "next"
-    }
-  ],
   "strict": true,
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./*"],
+      "@components/*": ["./components/*"],
+      "@context/*": ["./context/*"],
+      "@models/*": ["./models/*"],
     }
-  },
-  "include": ["next-env.d.ts", ".next/types/**/*.js", "**/*.js", "**/*.jsx"]
+  }
 }
