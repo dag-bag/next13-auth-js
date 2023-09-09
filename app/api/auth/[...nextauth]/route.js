@@ -1,8 +1,8 @@
 import NextAuth from "next-auth";
-// import connectDb from "@/utils/database";
+import connectDb from "@/utils/database";
 import { authOptions } from "./options";
 
-// connectDb();
+connectDb();
 
 const handler = NextAuth(authOptions);
 

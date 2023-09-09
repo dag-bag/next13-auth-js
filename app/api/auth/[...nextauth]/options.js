@@ -1,9 +1,5 @@
 import GoogleProvider from "next-auth/providers/google";
-import {
-  signInWithOAuth,
-  getUserByEmail,
-  signUpWithCredentials,
-} from "./modules";
+import { signInWithOAuth, getUserByEmail, signUpWithCredentials } from "./modules";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export const authOptions = {
@@ -12,21 +8,21 @@ export const authOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
-    // CredentialsProvider({
-    //   name: "Credentials",
-    //   credentials: {
-    //     email: { label: "Email", type: "email", placeholder: "Email", required: true },
-    //     password: { label: "Password", type: "password", placeholder: "Password", required: true },
-    //   },
-    //   async authorize(credentials, req) {
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        email: { label: "Email", type: "email", placeholder: "Email", required: true },
+        password: { label: "Password", type: "password", placeholder: "Password", required: true },
+      },
+      async authorize(credentials, req) {
+       
+        const { email, password } = credentials;
 
-    //     const { email, password } = credentials;
-
-    //     const user = await signUpWithCredentials({ email, password });
-    //     // console.log({user});
-    //     return user;
-    //   },
-    // }),
+        const user = await signUpWithCredentials({ email, password });
+        // console.log({user});
+        return user;
+      },
+    }),
   ],
   pages: {
     signIn: "/signin", //
